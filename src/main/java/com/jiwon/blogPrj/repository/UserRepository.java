@@ -18,7 +18,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	// 아래처럼 @Query로 명시해줘도 좋지만, 간단한 쿼리는 JPA에서 제공하는 네이밍규칙으로 자동쿼리 해주는게 좋음.
 	////User findByUsernameAndPassword(String username, String password);
 	//@Query(value = "SELECT * FROM USER WHERE USERNAME = ? AND PASSWORD = ?", nativeQuery = true)
-	//User login(String username, String password);
+	//User login(String username, String password); // 단순 select는 객체로 가져와도 상관없으나, update 등은 int형으로 수정된 갯수로 가져오기때문에 int형으로 선언.
 	
 	////User findByUsername(String username);
 	Optional<User> findByUsername(String username);
